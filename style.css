@@ -235,10 +235,15 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-between;
+  justify-content: start;
   max-width: 1200px;
   width: 100%;
   overflow: visible;
+}
+
+#search-button{
+  border: none;
+  cursor: pointer;
 }
 
 .recipe-card {

@@ -1,4 +1,3 @@
-
 // JavaScript for toggling the hamburger menu
 const hamburgerIcon = document.getElementById("hamburger-icon");
 const navLinks = document.getElementById("nav-links");
@@ -7,169 +6,162 @@ hamburgerIcon.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-
 const recipe = ScrollReveal({
-  origin: 'bottom',
-  distance: '40px',
+  origin: "bottom",
+  distance: "40px",
   duration: 1000,
   delay: 300,
-  easing: 'ease-out',
-  reset: false
+  easing: "ease-out",
+  reset: false,
 });
-recipe.reveal('.logo', {
-  origin: 'top',
-  distance: '50px',
+recipe.reveal(".logo", {
+  origin: "top",
+  distance: "50px",
   duration: 1200,
   delay: 400,
-  easing: 'ease-in-out'
+  easing: "ease-in-out",
 });
-recipe.reveal('.search-container', {
-  origin: 'left',
-  distance: '60px',
+recipe.reveal(".search-container", {
+  origin: "left",
+  distance: "60px",
   duration: 1200,
   delay: 500,
-  easing: 'ease-in-out',
-  interval: 200
+  easing: "ease-in-out",
+  interval: 200,
 });
 
-recipe.reveal('.nav-links', {
-  origin: 'right',
-  distance: '30px',
+recipe.reveal(".nav-links", {
+  origin: "right",
+  distance: "30px",
   duration: 1000,
   delay: 700,
-  easing: 'ease-in-out'
+  easing: "ease-in-out",
 });
-recipe.reveal('.recipe-container', {
-  origin: 'top',
-  distance: '50px',
+recipe.reveal(".recipe-container", {
+  origin: "top",
+  distance: "50px",
   duration: 1200,
   delay: 400,
-  easing: 'ease-in-out'
+  easing: "ease-in-out",
 });
 
-
-recipe.reveal('.recipe-card', {
-  origin: 'bottom',
-  distance: '60px',
+recipe.reveal(".recipe-card", {
+  origin: "bottom",
+  distance: "60px",
   duration: 1200,
   delay: 500,
-  easing: 'ease-in-out',
-  interval: 200
+  easing: "ease-in-out",
+  interval: 200,
 });
 
-recipe.reveal('.recipe-name', {
-  origin: 'left',
-  distance: '30px',
+recipe.reveal(".recipe-name", {
+  origin: "left",
+  distance: "30px",
   duration: 1000,
   delay: 600,
-  easing: 'ease-in-out'
+  easing: "ease-in-out",
 });
 
-recipe.reveal('.rating', {
-  origin: 'right',
-  distance: '30px',
+recipe.reveal(".rating", {
+  origin: "right",
+  distance: "30px",
   duration: 1000,
   delay: 700,
-  easing: 'ease-in-out'
+  easing: "ease-in-out",
 });
 
-recipe.reveal('.icon-details', {
-  origin: 'top',
-  distance: '20px',
+recipe.reveal(".icon-details", {
+  origin: "top",
+  distance: "20px",
   duration: 1000,
   delay: 800,
-  easing: 'ease-in-out'
+  easing: "ease-in-out",
 });
 
-recipe.reveal('.recipe-button', {
-  origin: 'bottom',
-  distance: '20px',
+recipe.reveal(".recipe-button", {
+  origin: "bottom",
+  distance: "20px",
   duration: 1000,
   delay: 900,
-  easing: 'ease-out',
-  interval: 100
+  easing: "ease-out",
+  interval: 100,
 });
 
+const sr = ScrollReveal({
+  origin: "bottom",
+  distance: "50px",
+  duration: 1000,
+  delay: 200,
+  easing: "ease-out",
+  reset: false,
+});
 
-  const sr = ScrollReveal({
-    origin: 'bottom',
-    distance: '50px',
-    duration: 1000,
-    delay: 200,
-    easing: 'ease-out',
-    reset: false
-  });
+sr.reveal(".home-text", {
+  origin: "left",
+  distance: "80px",
+  duration: 1200,
+  delay: 300,
+});
 
-  sr.reveal('.home-text', {
-    origin: 'left',
-    distance: '80px',
-    duration: 1200,
-    delay: 300
-  });
+sr.reveal(".home-image", {
+  origin: "right",
+  distance: "80px",
+  duration: 1200,
+  delay: 500,
+});
 
-  sr.reveal('.home-image', {
-    origin: 'right',
-    distance: '80px',
-    duration: 1200,
-    delay: 500
-  });
+sr.reveal(".curvy-menu", {
+  origin: "bottom",
+  distance: "50px",
+  duration: 1000,
+  delay: 700,
+});
 
-  sr.reveal('.curvy-menu', {
-    origin: 'bottom',
-    distance: '50px',
-    duration: 1000,
-    delay: 700
-  });
+sr.reveal("#dynamic-text", {
+  origin: "top",
+  distance: "50px",
+  duration: 1500,
+  delay: 900,
+});
 
-  sr.reveal('#dynamic-text', {
-    origin: 'top',
-    distance: '50px',
-    duration: 1500,
-    delay: 900
-  });
+sr.reveal(".features .container", {
+  origin: "top",
+  distance: "60px",
+  duration: 1200,
+  delay: 300,
+});
 
+sr.reveal(".feature-box", {
+  origin: "bottom",
+  distance: "50px",
+  duration: 1000,
+  delay: 500,
+  interval: 200,
+});
 
+sr.reveal(".icon-container", {
+  origin: "left",
+  distance: "30px",
+  duration: 1000,
+  delay: 600,
+});
 
-  sr.reveal('.features .container', {
-    origin: 'top',
-    distance: '60px',
-    duration: 1200,
-    delay: 300
-  });
+//--------------------------------------------------------------
 
-  sr.reveal('.feature-box', {
-    origin: 'bottom',
-    distance: '50px',
-    duration: 1000,
-    delay: 500,
-    interval: 200
-  });
+const apis = [
+  "7f2698d859f24c3f91102af507f7eae0",
+  "d346ae4a383543e59cf356a562969f53",
+  "8287c26d4cff4460b7e9473f9a076c5e",
+  "5a535224b9e0422a84515a0273df4df0",
+];
+const getKey = () => Math.floor(Math.random() * apis.length);
 
-  sr.reveal('.icon-container', {
-    origin: 'left',
-    distance: '30px',
-    duration: 1000,
-    delay: 600
-  });
-  
-  
-
-
-
-
-  //--------------------------------------------------------------
-
-  const apis=["7f2698d859f24c3f91102af507f7eae0","d346ae4a383543e59cf356a562969f53","8287c26d4cff4460b7e9473f9a076c5e","5a535224b9e0422a84515a0273df4df0"]
-const getKey=()=> Math.floor(Math.random()*apis.length)
-
-const apiKey = apis[getKey()]; 
+const apiKey = apis[getKey()];
 const recipeContainer = document.querySelector(".recipe-container");
 
 // const filterButtons = document.querySelectorAll(".filter");
 const searchBar = document.getElementById("search-bar");
-console.log(searchBar)
 const searchButton = document.getElementById("search-button");
-const toastContainer = document.getElementById("toast-container"); //toast message
 
 const reqConfig = {
   method: "GET",
@@ -183,14 +175,12 @@ async function fetchRecipes(searchQuery = "") {
     : `https://api.spoonacular.com/recipes/random?number=18`;
   const response = await fetch(endpoint, reqConfig);
   const data = await response.json();
-console.log(data)
+  console.log(data);
   return searchQuery ? data.results : data.recipes;
 }
 
-
 function renderRecipes(recipes, category = "all") {
   recipeContainer.innerHTML = "";
- 
 
   const filteredRecipes = recipes.filter((recipe) => {
     if (category === "veg") return recipe.vegetarian;
@@ -212,62 +202,62 @@ function renderRecipes(recipes, category = "all") {
     card.classList.add("recipe-card");
 
     card.innerHTML = `
-    <!-- Circular Image -->
     <img src="${recipe.image}" alt="${recipe.title}">
-
-    <!-- Recipe Details -->
     <div class="recipe-details">
       <h3 class="recipe-name">${recipe.title}</h3>
-    
       <div class="icon-details">
         <i class="fa-regular fa-clock"></i>
         <i class="fa-regular fa-face-smile"></i>
         <i class="fa-regular fa-user"></i>
       </div>
       <p class="details">${recipe.readyInMinutes} minutes | ${
-    recipe.vegetarian ? "Vegetarian" : "Non-Vegetarian"
-  } | ${recipe.servings} people</p>
+      recipe.vegetarian ? `<i class="fa-solid fa-circle" style="color:green;"></i>`:`<i class="fa-solid fa-circle" style="color: red;"></i>`
+    } | ${recipe.servings} people</p>
       <a href="recipe-details.html?id=${recipe.id}">
-        <button class="recipe-button" onclick="navigateToRecipe('${recipe.id}')">Explore</button>
+        <button class="recipe-button" onclick="navigateToRecipe('${
+          recipe.id
+        }')">Explore</button>
       </a>
     </div>
   `;
     recipeContainer.appendChild(card);
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+async function handleSearch() {
+  const query = searchBar.value.trim();
+  if (query) {
+    const recipes = await fetchRecipes(query);
+    renderRecipes(recipes);
+  } 
+  searchBar.value = "";
+}
 (async function initialize() {
   // if(!recipesFromStorage){
 
-      const recipes = await fetchRecipes();
-      renderRecipes(recipes);
-      // sessionStorage.setItem("currentRecipe", JSON.stringify(recipes));
+  const recipes = await fetchRecipes();
+  renderRecipes(recipes);
+  // sessionStorage.setItem("currentRecipe", JSON.stringify(recipes));
 
-      
   // }else{
   //     renderRecipes(recipesFromStorage);
 
   // }
 
-// filterButtons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     const category = button.getAttribute("data-category");
-//     renderRecipes(recipes, category);
-//   });
-// });
+  // filterButtons.forEach((button) => {
+  //   button.addEventListener("click", () => {
+  //     const category = button.getAttribute("data-category");
+  //     renderRecipes(recipes, category);
+  //   });
+  // });
 
-// searchButton.addEventListener("click", handleSearch);
-})();// start application
+  searchButton.addEventListener("click", handleSearch);
+})(); // start application
+
+
+
+
+
+
+
+
+
