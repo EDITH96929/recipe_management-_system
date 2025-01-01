@@ -96,6 +96,23 @@
         .instructions-list li {
             margin-bottom: 1rem;
         }
+        .dialog-content {
+            font-family: Arial, sans-serif;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .dialog-button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dialog-button.close {
+            background-color: #f44336;
+        }
     </style>
 </head>
 <body>
@@ -110,6 +127,16 @@
                 <p class="recipe-summary">
                     Chicken Curry is a flavorful dish that serves 6. One serving contains 350 calories, 25g of protein, and 15g of fat. For $1.50 per serving, this recipe covers 15% of your daily requirements of vitamins and minerals.
                 </p>
+                <button class="dialog-button" onclick="openDialog()">Show Nutrition Details</button>
+                <div class="dialog-content">
+                    <dialog id="nutrition-dialog">
+                        <p><strong>Nutrition Information</strong></p>
+                        <p>Calories: 350 kcal</p>
+                        <p>Protein: 25g</p>
+                        <p>Fat: 15g</p>
+                        <button class="dialog-button close" onclick="closeDialog()">Close</button>
+                    </dialog>
+                </div>
                 <div class="recipe-meta">
                     <div class="meta-item">
                         <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -132,6 +159,23 @@
                     <span class="tag tag-gluten-free">Gluten-Free</span>
                     <span class="tag tag-dairy-free">Dairy-Free</span>
                 </div>
+                <h2 class="ingredients-title">Ingredients</h2>
+                <ul class="ingredients-list">
+                    <li>1 kg chicken, cut into pieces</li>
+                    <li>2 tbsp cooking oil</li>
+                    <li>1 large onion, finely chopped</li>
+                    <li>3 garlic cloves, minced</li>
+                    <li>1-inch piece of ginger, grated</li>
+                    <li>2 tomatoes, chopped</li>
+                    <li>1 tsp turmeric powder</li>
+                    <li>1 tsp ground coriander</li>
+                    <li>1 tsp ground cumin</li>
+                    <li>1/2 tsp chili powder (adjust to taste)</li>
+                    <li>1 cup coconut milk</li>
+                    <li>1/2 cup water</li>
+                    <li>Salt to taste</li>
+                    <li>Cilantro leaves for garnish</li>
+                </ul>
                 <h2 class="instructions-title">Instructions</h2>
                 <ol class="instructions-list">
                     <li>Heat oil in a large pot over medium heat. Add chopped onions and sauté until golden brown.</li>
@@ -145,5 +189,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const dialog = document.getElementById('nutrition-dialog');
+
+        function openDialog() {
+            dialog.showModal();
+        }
+
+        function closeDialog() {
+            dialog.close();
+        }
+    </script>
 </body>
 </html>

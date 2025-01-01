@@ -15,11 +15,17 @@
 
   <nav class="navbar">
     <div class="logo">Recipe <span>Viewer</span></div>
-
+  
     <div class="search-container">
       <input type="text" id="search-bar" placeholder="Search recipes...">
       <button id="search-button"><i class="fas fa-search"></i></button>
     </div>
+    
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger-icon">
+      <i class="fas fa-bars"></i>
+    </div>
+    
     <ul class="nav-links" id="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#recipes">Recipes</a></li>
@@ -27,6 +33,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+  
   <section id="home">
     <div class="home-content">
       <div class="home-text">
@@ -39,7 +46,7 @@
         <img src="./assets/unique.jpg" alt="Plate of food">
         <div class="curvy-menu">
           <span data-target="first-course">Choose</span>
-          <span data-target="main-course">Explore</span>
+          <a href="./html_sections/chicken_recipe_details.html"><span data-target="main-course">Explore</span></a> 
           <span data-target="salads-starters">Browse</span>
         </div>
       </div>
@@ -51,123 +58,6 @@
 
   <section id="Recipes">
     <div class="recipe-container">
-
-
-      
-      <!-- Recipe Card -->
-
-
-
-
-      <!-- <div class="recipe-card">
-        <img src="./assets/unique.jpg" alt="Recipe Image">
-
-        <div class="recipe-details">
-          <h3 class="recipe-name">Sprout Salad with Soft Boiled Eggs</h3>
-          <div class="rating">
-            ★★★★☆
-            <div class="icon">
-              <i class="fa-regular fa-heart"></i>
-              <i class="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-          <p class="ingredients">
-            Search 2 million recipes using keywords, 26 nutrients, and 40 diet and health filters.
-          </p>
-          <div class="icon-details">
-            <i class="fa-regular fa-clock"></i>
-            <i class="fa-regular fa-face-smile"></i>
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <p class="details">20 minutes | Easy | 2 people</p>
-          <a href="./html_sections/chicken_recipe_details.html"><button class="recipe-button"
-              onclick="navigateToRecipe('dish1-details.html')">Explore</button>
-          </a>
-        </div>
-      </div> -->
-
-
-
-      <!-- <div class="recipe-card">
-        <img src="./assets/card1-removebg-preview.png" alt="Recipe Image">
-
-        <div class="recipe-details">
-          <h3 class="recipe-name">Sprout Salad with Soft Boiled Eggs</h3>
-          <div class="rating">
-            ★★★★☆
-            <div class="icon">
-              <i class="fa-regular fa-heart"></i>
-              <i class="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-          <p class="ingredients">
-            Search 2 million recipes using keywords, 26 nutrients, and 40 diet and health filters.
-          </p>
-          <div class="icon-details">
-            <i class="fa-regular fa-clock"></i>
-            <i class="fa-regular fa-face-smile"></i>
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <p class="details">20 minutes | Easy | 2 people</p>
-          <button class="recipe-button" onclick="navigateToRecipe('dish1-details.html')">Explore</button>
-        </div>
-      </div> -->
-
-
-
-      <!-- <div class="recipe-card">
-        <img src="./assets/card1-removebg-preview.png" alt="Recipe Image">
-
-        <div class="recipe-details">
-          <h3 class="recipe-name">Sprout Salad with Soft Boiled Eggs</h3>
-          <div class="rating">
-            ★★★★☆
-            <div class="icon">
-              <i class="fa-regular fa-heart"></i>
-              <i class="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-          <p class="ingredients">
-            Search 2 million recipes using keywords, 26 nutrients, and 40 diet and health filters.
-          </p>
-          <div class="icon-details">
-            <i class="fa-regular fa-clock"></i>
-            <i class="fa-regular fa-face-smile"></i>
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <p class="details">20 minutes | Easy | 2 people</p>
-          <button class="recipe-button" onclick="navigateToRecipe('dish1-details.html')">Explore</button>
-        </div>
-      </div> -->
-
-
-
-
-      <!-- <div class="recipe-card">
-        <img src="./assets/4-removebg-preview.png" alt="Recipe Image">
-
-        <div class="recipe-details">
-          <h3 class="recipe-name">Sprout Salad with Soft Boiled Eggs</h3>
-          <div class="rating">
-            ★★★★☆
-            <div class="icon">
-              <i class="fa-regular fa-heart"></i>
-              <i class="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-          <p class="ingredients">
-            Search 2 million recipes using keywords, 26 nutrients, and 40 diet and health filters.
-          </p>
-          <div class="icon-details">
-            <i class="fa-regular fa-clock"></i>
-            <i class="fa-regular fa-face-smile"></i>
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <p class="details">20 minutes | Easy | 2 people</p>
-          <button class="recipe-button" onclick="navigateToRecipe('dish1-details.html')">Explore</button>
-        </div>
-      </div> -->
-
 
     </div>
   </section>
