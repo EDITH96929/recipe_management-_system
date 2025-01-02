@@ -13,7 +13,7 @@ const recipe = ScrollReveal({
   delay: 300,
   easing: "ease-out",
   reset: false,
-});
+}); 
 recipe.reveal(".logo", {
   origin: "top",
   distance: "50px",
@@ -147,6 +147,8 @@ sr.reveal(".icon-container", {
 });
 
 //--------------------------------------------------------------
+let recipesFromStorage = JSON.parse(sessionStorage.getItem("currentRecipe"));
+let current = [];
 
 const apis = [
   "7f2698d859f24c3f91102af507f7eae0",
@@ -162,7 +164,7 @@ const recipeContainer = document.querySelector(".recipe-container");
 // const filterButtons = document.querySelectorAll(".filter");
 const searchBar = document.getElementById("search-bar");
 const searchButton = document.getElementById("search-button");
-
+const moreButton = document.querySelector(".more");
 const reqConfig = {
   method: "GET",
   headers: {
@@ -175,7 +177,6 @@ async function fetchRecipes(searchQuery = "") {
     : `https://api.spoonacular.com/recipes/random?number=18`;
   const response = await fetch(endpoint, reqConfig);
   const data = await response.json();
-  console.log(data);
   return searchQuery ? data.results : data.recipes;
 }
 
@@ -211,13 +212,15 @@ function renderRecipes(recipes, category = "all") {
         <i class="fa-regular fa-user"></i>
       </div>
       <p class="details">${recipe.readyInMinutes} minutes | ${
-      recipe.vegetarian ? `<i class="fa-solid fa-circle" style="color:green;"></i>`:`<i class="fa-solid fa-circle" style="color: red;"></i>`
+      recipe.vegetarian
+        ? `<i class="fa-solid fa-circle" style="color:green;"></i>`
+        : `<i class="fa-solid fa-circle" style="color: red;"></i>`
     } | ${recipe.servings} people</p>
-      <a href="recipe-details.html?id=${recipe.id}">
-        <button class="recipe-button" onclick="navigateToRecipe('${
+     
+        <a class="recipe-button" href="./chicken_recipe_details.html?id=${
           recipe.id
-        }')">Explore</button>
-      </a>
+        }">Explore</a>
+      
     </div>
   `;
     recipeContainer.appendChild(card);
@@ -228,20 +231,29 @@ async function handleSearch() {
   if (query) {
     const recipes = await fetchRecipes(query);
     renderRecipes(recipes);
-  } 
+  }
   searchBar.value = "";
 }
-(async function initialize() {
-  // if(!recipesFromStorage){
 
+const getMore = async () => {
   const recipes = await fetchRecipes();
-  renderRecipes(recipes);
-  // sessionStorage.setItem("currentRecipe", JSON.stringify(recipes));
+  console.log(recipes)
+  const updatedRecipes = [...current, ...recipes];
+  sessionStorage.setItem("currentRecipe", JSON.stringify(updatedRecipes));
+  renderRecipes(updatedRecipes);
 
-  // }else{
-  //     renderRecipes(recipesFromStorage);
+};
 
-  // }
+(async function initialize() {
+  if (!recipesFromStorage) {
+    const recipes = await fetchRecipes();
+    current = recipes;
+    renderRecipes(current);
+    sessionStorage.setItem("currentRecipe", JSON.stringify(current));
+  } else {
+    current = recipesFromStorage;
+    renderRecipes(current);
+  }
 
   // filterButtons.forEach((button) => {
   //   button.addEventListener("click", () => {
@@ -251,13 +263,5 @@ async function handleSearch() {
   // });
 
   searchButton.addEventListener("click", handleSearch);
+  moreButton.addEventListener("click", getMore);
 })(); // start application
-
-
-
-
-
-
-
-
-
