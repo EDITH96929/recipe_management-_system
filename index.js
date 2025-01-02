@@ -13,7 +13,7 @@ const recipe = ScrollReveal({
   delay: 300,
   easing: "ease-out",
   reset: false,
-}); 
+});
 recipe.reveal(".logo", {
   origin: "top",
   distance: "50px",
@@ -161,7 +161,6 @@ const getKey = () => Math.floor(Math.random() * apis.length);
 const apiKey = apis[getKey()];
 const recipeContainer = document.querySelector(".recipe-container");
 
-// const filterButtons = document.querySelectorAll(".filter");
 const searchBar = document.getElementById("search-bar");
 const searchButton = document.getElementById("search-button");
 const moreButton = document.querySelector(".more");
@@ -202,27 +201,34 @@ function renderRecipes(recipes, category = "all") {
     const card = document.createElement("div");
     card.classList.add("recipe-card");
 
+    const vegetarianIcon = recipe.vegetarian
+      ? `<i class="fa-solid fa-circle" style="color:green;"></i>`
+      : `<i class="fa-solid fa-circle" style="color:red;"></i>`;
+
+    const details = recipe.readyInMinutes
+      ? `
+        <div class="icon-details">
+          <i class="fa-regular fa-clock"></i>
+          <i class="fa-regular fa-face-smile"></i>
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <p class="details">${recipe.readyInMinutes} minutes | ${vegetarianIcon} | ${recipe.servings} people</p>
+      `
+      : ""; // If `readyInMinutes` is not available, it will be empty.
+
     card.innerHTML = `
-    <img src="${recipe.image}" alt="${recipe.title}">
-    <div class="recipe-details">
-      <h3 class="recipe-name">${recipe.title}</h3>
-      <div class="icon-details">
-        <i class="fa-regular fa-clock"></i>
-        <i class="fa-regular fa-face-smile"></i>
-        <i class="fa-regular fa-user"></i>
-      </div>
-      <p class="details">${recipe.readyInMinutes} minutes | ${
-      recipe.vegetarian
-        ? `<i class="fa-solid fa-circle" style="color:green;"></i>`
-        : `<i class="fa-solid fa-circle" style="color: red;"></i>`
-    } | ${recipe.servings} people</p>
-     
+      <img src="${
+        recipe.image || `https://placehold.co/600x400?text=Not+Found`
+      }" alt="${recipe.title}">
+      <div class="recipe-details">
+        <h3 class="recipe-name">${recipe.title}</h3>
+        ${details}
         <a class="recipe-button" href="./chicken_recipe_details.html?id=${
           recipe.id
         }">Explore</a>
-      
-    </div>
-  `;
+      </div>
+    `;
+
     recipeContainer.appendChild(card);
   });
 }
@@ -233,18 +239,21 @@ async function handleSearch() {
     renderRecipes(recipes);
   }
   searchBar.value = "";
+  moreButton.style.display = "none";
 }
 
 const getMore = async () => {
+  moreButton.style.cursor = "not-allowed";  
   const recipes = await fetchRecipes();
-  console.log(recipes)
   const updatedRecipes = [...current, ...recipes];
   sessionStorage.setItem("currentRecipe", JSON.stringify(updatedRecipes));
   renderRecipes(updatedRecipes);
+  moreButton.style.cursor = "pointer";
 
 };
 
 (async function initialize() {
+  moreButton.style.display = "inline";
   if (!recipesFromStorage) {
     const recipes = await fetchRecipes();
     current = recipes;
@@ -254,13 +263,6 @@ const getMore = async () => {
     current = recipesFromStorage;
     renderRecipes(current);
   }
-
-  // filterButtons.forEach((button) => {
-  //   button.addEventListener("click", () => {
-  //     const category = button.getAttribute("data-category");
-  //     renderRecipes(recipes, category);
-  //   });
-  // });
 
   searchButton.addEventListener("click", handleSearch);
   moreButton.addEventListener("click", getMore);

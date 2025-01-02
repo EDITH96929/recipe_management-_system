@@ -242,6 +242,7 @@ body {
 }
 
 #search-button{
+  background-color: #e0e5ec;
   border: none;
   cursor: pointer;
 }
